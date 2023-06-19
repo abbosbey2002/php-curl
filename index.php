@@ -128,7 +128,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     
     foreach($articles as $article){
         
-        echo "<h1> $article->title </h1> <img src=$article->img alt=$article->title /> <p> $article->text </p> "   ;
+        echo "<h1> $article->title </h1> <img src=$article->img alt=$article->title />  <a href=$$article->url> Bu yangilik manbasi </a> <p> $article->text </p> "   ;
     }
 }
 
