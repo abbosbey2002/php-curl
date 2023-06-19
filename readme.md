@@ -10,8 +10,8 @@
 ## set a database for mysql phpmyadmin;
 
 1. open phpmyadmin
-2.create database name = 'news'
-1.import new.sql file;
+2. create database name = 'news'
+1. import new.sql file;
 
 
 ## finely Run index.php file
