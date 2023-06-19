@@ -39,7 +39,6 @@ $url ="https://kun.uz/uz/news/category/uzbekiston";
     // get a link news 
     
     for($i=0; $i<$item_count; $i+=2){
-        echo  '<br>';
         $div=$doc->getElementById('news-list');
 
         // var_dump( strlen($div->getElementsByTagName('a')->item($i)->getAttribute('href')));
@@ -87,6 +86,7 @@ $url ="https://kun.uz/uz/news/category/uzbekiston";
         $doc->loadHTML($html);
         $title=$doc->getElementsByTagName('h1')->item(0)->textContent;
         $descr_count=$doc->getElementsByTagName('div')->length-1;
+        $url=$single_url;
         // description
         $descr='';
         $img='';
@@ -104,21 +104,39 @@ $url ="https://kun.uz/uz/news/category/uzbekiston";
         }
 
 
-
-        echo "<h1> $title </h1> <img src=$img alt=$title /> <p> $descr </p> "   ;
-
-        Main::add_article($title, $descr, $img);
-
-     
+        
+        
+        Main::add_article($title, $descr, $img, $url);
+        
+        
     }
+    
+    ?>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Article</title>
+    </head>
+    <body>
+<?php
 
+if($_SERVER['REQUEST_METHOD'] === "GET"){
+    $articles=Main::get_article();
+    
+    foreach($articles as $article){
+        
+        echo "<h1> $article->title </h1> <img src=$article->img alt=$article->title /> <p> $article->text </p> "   ;
+    }
+}
 
-
-
-
-
-
-    // last-newsl
-
+?>      
+    </body>
+    </html>
+    
+    
+    
 
     
