@@ -14,13 +14,13 @@ class Main{
 
         // variable
         $title=self::clear_data($title);
-        $descr=self::clear_data($descr);
+        $text=self::clear_data($descr);
         $img=self::clear_data($img);
 
         $stmt=self::$pdo->prepare($query);
         $stmt->execute([
             "title"=>$title,
-            "text"=>$descr,
+            "text"=>$text,
             "img"=>$img
         ]);
 

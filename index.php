@@ -38,7 +38,7 @@ $url ="https://kun.uz/uz/news/category/uzbekiston";
     $single_new_urls=array();
     // get a link news 
     
-    for($i=0; $i<$item_count; $i++){
+    for($i=0; $i<$item_count; $i+=2){
         echo  '<br>';
         $div=$doc->getElementById('news-list');
 
@@ -107,7 +107,7 @@ $url ="https://kun.uz/uz/news/category/uzbekiston";
 
         echo "<h1> $title </h1> <img src=$img alt=$title /> <p> $descr </p> "   ;
 
-        Main::add_article($title, $desc, $img);
+        Main::add_article($title, $descr, $img);
 
      
     }
